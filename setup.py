@@ -60,7 +60,7 @@ setup(
     long_description_content_type="text/markdown",
     entry_points={
         "mkdocs.plugins": [
-            "fast-search-updated = mkdocs_fast_search_updated_plugin.plugin:SearchPlugin"
+            "fast-search-updated = mkdocs_fast_search_updated_plugin:SearchPlugin"
         ]
     },
     cmdclass={"upload": UploadCommand}, install_requires=['mkdocs']
