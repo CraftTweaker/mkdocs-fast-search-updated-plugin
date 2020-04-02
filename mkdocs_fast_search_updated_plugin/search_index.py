@@ -68,7 +68,8 @@ class SearchIndex:
         # Create an entry for the full page.
         self._add_entry(
             title=page.title,
-            text=self.strip_tags(page.content).rstrip('\n'),
+            # text=self.strip_tags(page.content).rstrip('\n'),
+            text='',
             loc=url
         )
 
@@ -87,7 +88,7 @@ class SearchIndex:
         if toc_item is not None:
             self._add_entry(
                 title=toc_item.title,
-                text=" ".join(section.text),
+                text=u" ".join(section.text),
                 loc=abs_url + toc_item.url
             )
 
@@ -142,7 +143,7 @@ class HTMLStripper(HTMLParser):
     """
 
     def __init__(self, *args, **kwargs):
-        super().__init__(*args, **kwargs)
+        HTMLParser.__init__(*args, **kwargs)
 
         self.data = []
 
@@ -194,6 +195,7 @@ class ContentParser(HTMLParser):
 
     def handle_starttag(self, tag, attrs):
         """Called at the start of every HTML tag."""
+
         if tag in self.exclude:
             if tag not in self.open_excluded:
                 self.open_excluded.append(tag)
