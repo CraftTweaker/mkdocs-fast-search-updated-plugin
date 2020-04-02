@@ -3,7 +3,7 @@ import logging
 from mkdocs import utils
 from mkdocs.plugins import BasePlugin
 from mkdocs.config import config_options
-from mkdocs.contrib.search.search_index import SearchIndex
+from mkdocs_fast_search_updated_plugin.search_index import SearchIndex
 
 
 log = logging.getLogger(__name__)
